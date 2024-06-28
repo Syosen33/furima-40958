@@ -10,7 +10,7 @@
 | first_name         | string   | null: false |
 | last_name_kana     | string   | null: false |
 | last_name_kana     | string   | null: false |
-| birthday           | integer  | null: false |
+| birthday           | date     | null: false |
 
 
 ### Association
