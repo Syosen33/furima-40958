@@ -10,7 +10,7 @@
 | first_name         | string   | null: false |
 | last_name_kana     | string   | null: false |
 | last_name_kana     | string   | null: false |
-| date               | integer  | null: false |
+| birthday           | integer  | null: false |
 
 
 ### Association
@@ -26,7 +26,7 @@
 | category_id           | integer    | null: false,                   |
 | condition_id          | integer    | null: false,                   |
 | shipping_fee_burden_id| integer    | null: false,                   |
-| shipping_from_id      | integer    | null: false,                   |
+| prefecture_id         | integer    | null: false,                   |
 | shipping_day_id       | integer    | null: false,                   |
 | price                 | integer    | null: false,                   |
 | user                  | references | null: false, foreign_key: true |
