@@ -19,20 +19,20 @@
 
 
 ## items テーブル
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | -------------------------------|
-| product_name        | string     | null: false,                   |
-| description         | text       | null: false,                   |
-| category            | integer    | null: false,                   |
-| shipping_fee_burden | integer    | null: false,                   |
-| shipping_from       | integer    | null: false,                   |
-| shipping_day        | integer    | null: false,                   |
-| price               | integer    | null: false,                   |
-| user                | references | null: false, foreign_key: true |
+| Column                | Type       | Options                        |
+| -------------------   | ---------- | -------------------------------|
+| product_name          | string     | null: false,                   |
+| description           | text       | null: false,                   |
+| category_id           | integer    | null: false,                   |
+| condition_id          | integer    | null: false,                   |
+| shipping_fee_burden_id| integer    | null: false,                   |
+| shipping_from_id      | integer    | null: false,                   |
+| shipping_day_id       | integer    | null: false,                   |
+| price                 | integer    | null: false,                   |
+| user                  | references | null: false, foreign_key: true |
 
 ### Association
-
-- has_many   :orders
+- has_one    :order
 - belongs_to :user
 
 ## orders テーブル
@@ -50,7 +50,7 @@
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | -------------------------------|
 | postal_code         | string     | null: false,                   |
-| prefecture          | integer    | null: false,                   |
+| prefecture_id       | integer    | null: false,                   |
 | city                | string     | null: false,                   |
 | street_address      | string     | null: false,                   |
 | building            | string     |                                |
@@ -59,7 +59,6 @@
 
 
 ### Association
-
 - belongs_to :order
 
 
