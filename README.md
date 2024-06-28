@@ -14,8 +14,8 @@
 
 
 ### Association
-- has_many :items
-- has_one  :orders
+- has_many  :items
+- has_many  :orders
 
 
 ## items テーブル
@@ -23,23 +23,23 @@
 | ------------------- | ---------- | -------------------------------|
 | product_name        | string     | null: false,                   |
 | description         | text       | null: false,                   |
-| category            | string     | null: false,                   |
-| shipping_fee_burden | integer    | not null, foreign key (references: genres) 
-| shipping_from       | integer    | not null, foreign key (references: genres) 
-| shipping_days       | integer    | not null, foreign key (references: genres) 
+| category            | integer    | null: false,                   |
+| shipping_fee_burden | integer    | null: false,                   |
+| shipping_from       | integer    | null: false,                   |
+| shipping_day        | integer    | null: false,                   |
 | price               | integer    | null: false,                   |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one    :order
-- bilongs_to :user
+- has_many   :orders
+- belongs_to :user
 
 ## orders テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user    | string     | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
 
 - belongs_to :user
@@ -50,7 +50,7 @@
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | -------------------------------|
 | postal_code         | string     | null: false,                   |
-| prefecture          | integer    | not null, foreign key (references: prefectures) |
+| prefecture          | integer    | null: false,                   |
 | city                | string     | null: false,                   |
 | street_address      | string     | null: false,                   |
 | building            | string     |                                |
