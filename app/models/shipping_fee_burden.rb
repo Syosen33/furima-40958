@@ -1,18 +1,8 @@
-shipping_fee_burden_
-
-class Category < ActiveHash::Base
+class ShippingFeeBurden < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
-    { id: 2, name: 'レディース' },
-    { id: 3, name: 'メンズ' },
-    { id: 4, name: 'ベビー・キッズ' },
-    { id: 5, name: 'インテリア・住まい・小物' },
-    { id: 6, name: '本・音楽・ゲーム' },
-    { id: 7, name: 'おもちゃ・ホビー・グッズ' },
-    { id: 8, name: '家電・スマホ・カメラ' },
-    { id: 10, name: 'スポーツ・レジャー' },
-    { id: 11, name: 'ハンドメイド' },
-    { id: 12, name: 'その他' }
+    { id: 2, name: '着払い（購入者負担）' },
+    { id: 3, name: '送料込み（出品者負担）' },
   ]
 
   include ActiveHash::Associations
