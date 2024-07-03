@@ -17,8 +17,9 @@ class Item < ApplicationRecord
   validates :shipping_day_id, presence: true
 
   # 価格のバリデーション
-  validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
-
+  validates :price, presence: true,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は¥300から¥9,999,999の間で設定してください" }
+  validates :price, format: { with: /\A\d+\z/, message: "は半角数字で入力してください" }
+  
   # 追加のバリデーション例:
   # validates :product_name, length: { maximum: 100 }
   # validates :description, length: { maximum: 1000 }
