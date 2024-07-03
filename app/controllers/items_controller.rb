@@ -10,11 +10,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)  # current_userを使用して関連付けられたItemを作成
+
     if @item.save
-      redirect_to root_path
+      redirect_to @item, notice: 'Item was successfully created.'
     else
-      # バリデーションエラーメッセージを表示するために @item.errors を使います
       render :new
     end
   end
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:item_name, :item_info, :item_image, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :shipping_day_id, :price)
+    params.require(:item).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :shipping_day_id, :price, :item_image)
   end
+
 end

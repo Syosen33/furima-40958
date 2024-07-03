@@ -1,9 +1,8 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-
-  # 空の投稿を保存できないようにする
-  validates :title, :text, presence: true
+  has_one_attached :item_image
+  belongs_to :user
 
   # 商品名と説明のバリデーション
   validates :product_name, presence: true
