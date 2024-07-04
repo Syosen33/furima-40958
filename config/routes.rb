@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :users, only: [:edit, :update]
-  resources :items, only: [:new, :create, :destroy, :index, :show] do
-    resources :messages, only: [:index, :create]
+  resources :items, only: [:new, :create, :index,] 
 
-end
+
 end

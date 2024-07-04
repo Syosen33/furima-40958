@@ -10,7 +10,7 @@ window.document.addEventListener('DOMContentLoaded', () => {
     
     // 販売手数料 (10%)
     const tax = Math.floor(price * 0.1)
-    const profit = price - tax
+    const profit = Math.floor(price - tax)
     const taxForm = document.getElementById("add-tax-price")
     taxForm.textContent = tax 
     // 販売利益

@@ -1,13 +1,10 @@
 class Item < ApplicationRecord
-  validate :custom_validation
-
-  def custom_validation
-    errors.add(:base, "エラーが発生しました") if condition_id == 1 && category_id == 1
-  end
-
-  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :condition
+  belongs_to :shipping_fee_burden
+  belongs_to :prefecture
+  belongs_to :shipping_day
   has_one_attached :item_image
   belongs_to :user
 
@@ -24,13 +21,13 @@ class Item < ApplicationRecord
   validates :condition_id, presence: true, numericality: { other_than: 1, message: "を選択してください" }
 
   # 送料の負担のバリデーション
-  validates :shipping_fee_burden_id, presence: true
+  validates :shipping_fee_burden_id, presence: true, numericality: { other_than: 1, message: "を選択してください" }
 
   # 配送元の地域のバリデーション
-  validates :prefecture_id, presence: true
+  validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "を選択してください" }
 
   # 発送までの日数のバリデーション
-  validates :shipping_day_id, presence: true
+  validates :shipping_day_id, presence: true, numericality: { other_than: 1, message: "を選択してください" }
 
   # 価格のバリデーション
   validates :price, presence: true,
