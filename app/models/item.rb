@@ -40,4 +40,6 @@ class Item < ApplicationRecord
                       less_than_or_equal_to: 9999999,
                       message: "は¥300から¥9,999,999の間で設定してください"
                     }
+
+   validates :item_image, presence: true
 end
