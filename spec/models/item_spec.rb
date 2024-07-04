@@ -121,7 +121,7 @@ RSpec.describe Item, type: :model do
     it "出品者が紐付いていなければ出品できないこと" do
       @item.user = nil  # ユーザーをnilに設定
       @item.valid?
-      expect(@item.errors,full_messages).to include("User must exist")
+      expect(@item.errors.full_messages).to include("User must exist")
      end
     end
   end
