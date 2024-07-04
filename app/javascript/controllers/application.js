@@ -1,6 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import "fee_calculator"
-require("fee_calculator");
 
 const application = Application.start()
 

@@ -13,12 +13,12 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)  # current_userを使用して関連付けられたItemを作成
 
     if @item.save
-      redirect_to @item, notice: 'Item was successfully created.'
+       redirect_to root_path, notice: '出品が完了しました。'
     else
       render :new
     end
   end
-  
+    
   private
   
   def item_params
