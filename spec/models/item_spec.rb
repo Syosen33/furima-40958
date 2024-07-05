@@ -88,7 +88,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "カテゴリーに「---」が選択されている場合は出品できない" do
-        @item.category_id = nil
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors[:category_id]).to include("を選択してください")
       end
