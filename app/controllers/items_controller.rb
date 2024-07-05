@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all # すべての商品データを取得
+    # [item1, item2, ...]
+    # []
   end
 
   def new
