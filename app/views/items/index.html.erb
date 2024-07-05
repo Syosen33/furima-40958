@@ -129,17 +129,19 @@
     <ul class='item-lists'>
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @items.each do |item| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to item_path(item) do %>
         <div class='item-img-content'>
-          <%= image_tag "item-sample.png", class: "item-img" %>
+            <% if item.item_image.attached? %>
+      
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
-
+        <% end %>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -158,10 +160,8 @@
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 
       <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-     
       <%# 商品がある場合は表示されないようにしましょう %>
-      <% if @products.present? && @products.empty? %>
-
+      
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -179,9 +179,7 @@
         </div>
         <% end %>
       </li>
-      <% else %>
       <%# //商品がある場合は表示されないようにしましょう %>
-     <% end %>
       <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
     </ul>
   </div>

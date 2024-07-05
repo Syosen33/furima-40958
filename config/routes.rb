@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-   devise_for :items
-  devise_for :users
-  get 'items/index'
-  root 'items#index'
+# ユーザー認証機能
+devise_for :users
 
-  resources :users, only: [:edit, :update]
-  resources :items, only: [:new, :create, :index,] 
+# 商品関連のルーティング
+resources :items do
+  # 追加のアクションやリソースを設定する場合はここに記述
+end
 
+# ユーザー情報編集のルーティング
+resources :users, only: [:edit, :update]
+
+# ルートパスを商品一覧ページに設定
+root 'items#index'
 
 end

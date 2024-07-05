@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    #@items = Item.order("created_at DESC")
+    @items = Item.all # すべての商品データを取得
   end
 
   def new
