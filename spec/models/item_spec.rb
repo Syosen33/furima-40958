@@ -94,25 +94,25 @@ RSpec.describe Item, type: :model do
       end
 
       it "商品の状態に「---」が選択されている場合は出品できない" do
-        @item.condition_id = nil
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors[:condition_id]).to include("を選択してください")
       end
 
       it "配送料の負担に「---」が選択されている場合は出品できない" do
-        @item.shipping_fee_burden_id = nil
+        @item.shipping_fee_burden_id = 1
         @item.valid?
         expect(@item.errors[:shipping_fee_burden_id]).to include("を選択してください")
       end
 
       it "発送元の地域に「---」が選択されている場合は出品できない" do
-        @item.prefecture_id = nil
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors[:prefecture_id]).to include("を選択してください")
       end
 
       it "発送までの日数に「---」が選択されている場合は出品できない" do
-        @item.shipping_day_id = nil
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors[:shipping_day_id]).to include("を選択してください")
       end
