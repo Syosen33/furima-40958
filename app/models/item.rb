@@ -39,4 +39,8 @@ class Item < ApplicationRecord
                     }
 
    validates :item_image, presence: true
+
+   def sold?
+    # 売却済みの条件を定義。例えば、購入履歴がある場合。
+     end
 end
