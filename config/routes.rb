@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 devise_for :users
 
 # 商品関連のルーティング
-resources :items do
-  # 追加のアクションやリソースを設定する場合はここに記述
-end
+resources :items 
 
 # ユーザー情報編集のルーティング
 resources :users, only: [:edit, :update]
