@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -40,7 +40,15 @@ class ItemsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: '商品を削除しました。'
+    else
+      redirect_to item_path(@item), alert: '商品の削除に失敗しました。'
+    end
+  end
+
 
   private
 
@@ -58,4 +66,4 @@ end
   def item_params
     params.require(:item).permit(:product_name, :description, :category_id, :condition_id, :shipping_fee_burden_id, :prefecture_id, :shipping_day_id, :price, :item_image)
   end
-
+end
