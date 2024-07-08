@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path, notice: '商品情報を更新しました。'
+      redirect_to item_path(@item), notice: '商品情報を更新しました。'
     else
       # バリデーションエラーで編集ページに戻る際、入力済みの項目を保持するために@itemを再読み込み
        @item.reload
