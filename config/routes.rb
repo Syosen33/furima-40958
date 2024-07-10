@@ -11,4 +11,8 @@ resources :users, only: [:edit, :update]
 # ルートパスを商品一覧ページに設定
 root 'items#index'
 
+#createアクションに対応するルーティング
+resources :items do
+  resources :orders, only: [:index, :create]
+end
 end
