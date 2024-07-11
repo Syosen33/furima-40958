@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_one :order
   belongs_to :category
   belongs_to :condition
   belongs_to :shipping_fee_burden
@@ -40,7 +41,7 @@ class Item < ApplicationRecord
 
    validates :item_image, presence: true
 
-   def sold?
-    # 売却済みの条件を定義。例えば、購入履歴がある場合。
-     end
+   def sold_out?
+    order.present?
+  end
 end

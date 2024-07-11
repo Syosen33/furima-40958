@@ -38,4 +38,10 @@ class OrdersController < ApplicationController
   def order_form_params
     params.require(:order_form).permit(:postal_code, :prefecture_id, :city, :street_address, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id,token: params[:token])
   end
+
+  def redirect_if_not_allowed
+    if @item.user_id == current_user.id || @item.sold_out?
+      redirect_to root_path, alert: '購入できません'
+    end
+  end
 end
