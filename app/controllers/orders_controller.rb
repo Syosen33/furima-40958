@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :set_item, only: [:index, :create]
+  before_action :set_item
   before_action :authenticate_user!
-  before_action :redirect_if_not_allowed, only: [:index, :create]
+  before_action :redirect_if_not_allowed, only: [:index, :new, :create]
+ 
   
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
