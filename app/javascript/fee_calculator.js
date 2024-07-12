@@ -21,6 +21,7 @@ const calc_tax = () => {
 
 
 window.addEventListener("turbo:load", calc_tax);
+window.addEventListener("turbo:render", calc_tax);
 
 // 以下は学習用コメント
 // 読み込ませる(importmap.application.js.windowオブジェクト)→取得する(getElementById)→操作する(addEventListener)
