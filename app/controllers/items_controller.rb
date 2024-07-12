@@ -59,13 +59,14 @@ class ItemsController < ApplicationController
   def correct_user
     @item = Item.find(params[:id])
     return if @item.user == current_user
+
     redirect_to root_path, alert: '権限がありません。'
   end
 
   def redirect_if_sold
-    if @item.sold_out?
-      redirect_to root_path, alert: "売却済みの商品は編集できません。"
-    end
+    return unless @item.sold_out?
+
+    redirect_to root_path, alert: '売却済みの商品は編集できません。'
   end
 
   def item_params
