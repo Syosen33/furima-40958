@@ -25,6 +25,12 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include("Postal code can't be blank")
       end
 
+      it '郵便番号がハイフンを含まない場合は購入できない' do
+        @order_form.postal_code = '1234567'
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
+      end
+
       it '都道府県が選択されていなければ購入できない' do
         @order_form.prefecture_id = 1
         @order_form.valid?

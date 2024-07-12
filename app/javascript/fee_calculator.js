@@ -20,6 +20,9 @@ window.document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+window.addEventListener("turbo:load", tax);
+window.addEventListener("turbo:render", tax);
+
 // 以下は学習用コメント
 // 読み込ませる(importmap.application.js.windowオブジェクト)→取得する(getElementById)→操作する(addEventListener)
 // 上記を「DOM操作」
