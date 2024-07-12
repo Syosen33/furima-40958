@@ -29,7 +29,7 @@ RSpec.describe OrderForm, type: :model do
       it '都道府県が選択されていなければ購入できない' do
         @order_form.prefecture_id = 1
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Prefecture を選択してください")
+        expect(@order_form.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it '市区町村が空では購入できない' do
@@ -51,19 +51,19 @@ RSpec.describe OrderForm, type: :model do
       it '電話番号が10桁以上11桁以内の半角数値でなければ購入できない' do
         @order_form.phone_number = '090-1234-5678'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数字で入力してください')
+        expect(@order_form.errors.full_messages).to include('Phone number must be a number between 10 and 11 digits')
       end
 
       it '電話番号が12桁以上では購入できない' do
         @order_form.phone_number = '090123456789'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数字で入力してください')
+        expect(@order_form.errors.full_messages).to include("Phone number must be a number between 10 and 11 digits")
       end
 
       it '電話番号が9桁以下では購入できない' do
         @order_form.phone_number = '090123456'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number は10桁以上11桁以内の半角数字で入力してください')
+        expect(@order_form.errors.full_messages).to include('Phone number must be a number between 10 and 11 digits')
       end
 
       it 'tokenが空では購入できない' do

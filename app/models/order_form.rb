@@ -4,10 +4,10 @@ class OrderForm
 
   with_options presence: true do
     validates :postal_code
-    validates :prefecture_id, numericality: { other_than: 1, message: 'を選択してください' }
+    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :city, presence: true
   validates :street_address, presence: true
-  validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は10桁以上11桁以内の半角数字で入力してください' }
+  validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'must be a number between 10 and 11 digits' }
   validates :token, presence: true
   validates :item_id
   validates :user_id
