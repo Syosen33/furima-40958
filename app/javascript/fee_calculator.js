@@ -1,4 +1,4 @@
-window.document.addEventListener('DOMContentLoaded', () => {
+const calc_tax = () => {
 
   const priceInput = document.getElementById('item-price');
   const addTaxPrice = document.getElementById('add-tax-price');
@@ -17,8 +17,11 @@ window.document.addEventListener('DOMContentLoaded', () => {
     const profitForm = document.getElementById("profit")
     profitForm.textContent = profit  
   });
-});
+};
 
+
+window.addEventListener("turbo:load", calc_tax);
+window.addEventListener("turbo:render", calc_tax);
 
 // 以下は学習用コメント
 // 読み込ませる(importmap.application.js.windowオブジェクト)→取得する(getElementById)→操作する(addEventListener)
