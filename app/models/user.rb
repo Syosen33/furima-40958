@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :items
+  has_many :orders, dependent: :destroy
+  
 
   # 必須項目のバリデーション
   validates :nickname, presence: true
