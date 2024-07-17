@@ -77,9 +77,6 @@ group :test do
   gem 'pry-byebug'
 end
 
-group :production do
-  gem 'pg'
-end
 
 gem 'devise'
 gem 'mini_magick'
@@ -93,10 +90,6 @@ end
 
 gem 'payjp'
 gem 'gon'
-
-group :production do
-  gem 'pg'
-end
 
 gem "aws-sdk-s3", require: false
 
