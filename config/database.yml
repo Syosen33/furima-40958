@@ -17,7 +17,7 @@ test:
   password:
   host: localhost
   database: furima_40958_test
-#
+
 production:
   <<: *default
   adapter: mysql2
